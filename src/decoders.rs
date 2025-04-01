@@ -187,6 +187,11 @@ impl<'a> AttrDecoder<'a, ConntrackAttr, Flow> for Flow {
 
                     flow.helper = Some(Helper::decode(helper_attr)?);
                 }
+                ConntrackAttr::CtaLabels => {
+                    let label_bitmask = attr.payload().as_ref().to_owned();
+
+                    flow.label_bitmask = Some(label_bitmask);
+                }
                 other => {
                     log::warn!("Failed to handle attribute: {:?}", other);
                 }

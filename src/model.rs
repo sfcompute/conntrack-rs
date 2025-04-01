@@ -49,6 +49,7 @@ pub struct Flow {
     pub sec_ctx: Option<SecCtx>,
     pub sec_mark: Option<u32>,
     pub exp: Option<Exp>,
+    pub label_bitmask: Option<Vec<u8>>,
 }
 #[neli_enum(serialized_type = "u8")]
 #[derive(Serialize, Deserialize)]
